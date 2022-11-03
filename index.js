@@ -60,19 +60,26 @@ server.get("/join", (req, res) => {
     newID = `${Math.ceil(Math.random() * 1000)}`;
     while (loop == true) {
         loop = false;
-        for (playerID of playerIDs) {
+        playerIDs.forEach((playerID) => {
             if (playerID == newID) {
                 console.log("COINCIDENCIA ENCONTRADA: " + newID);
                 newID = `${Math.ceil(Math.random() * 1000)}`;
                 loop = true;
             }
-        }
+        })
+        // for (playerID of playerIDs) {
+        //     if (playerID == newID) {
+        //         console.log("COINCIDENCIA ENCONTRADA: " + newID);
+        //         newID = `${Math.ceil(Math.random() * 1000)}`;
+        //         loop = true;
+        //     }
+        // }
     }
     playerIDs.push(newID);
     const newPlayer = new Jugador(newID);
     playerDB.push(newPlayer);
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.send({newID});
+    res.send(newID);
     playercount = playerDB.length;
 });
 
