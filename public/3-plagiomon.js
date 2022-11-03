@@ -130,7 +130,7 @@ function fgetPlayerID() {
 
 function fgetPlayermon(objectmon) {
     // fetch(`http://192.168.0.5:8080/plagiomon/${clientID}`
-    fetch(`https://plagiomon.vercel.app/plagiomon:8080/${clientID}`, {
+    fetch(`https://plagiomon.vercel.app:8080/plagiomon/${clientID}`, {
         method: "post",
         headers: {
             "Content-Type": "application/json",
