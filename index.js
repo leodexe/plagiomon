@@ -4,7 +4,7 @@ import express from "express";
 const server = express();
 import cors from "cors";
 server.use(cors());
-server.use(express.static('burrito'));
+server.use(express.static('public'));
 server.use(express.json());
 const playerIDs = [];
 let playerDB = [];
