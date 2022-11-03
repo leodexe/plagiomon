@@ -44,7 +44,7 @@ class Jugador {
 
 const port = process.env.PORT || 4000;
 
-server.listen(8080, () => {
+server.listen(port, () => {
     console.log("Servidor encendido.");
 });
 
