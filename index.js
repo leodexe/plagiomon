@@ -164,10 +164,12 @@ server.get("/plagiomon/:clientID/vs/:rivalID/getStatus", (req, res) => {
     if (clientIndex >= 0 && hostIndex >= 0) {
         hostPlayer = playerDB[hostIndex];
         connection = hostPlayer.online;
+        res.send(connection);
+        hostPlayer.online = false;
     } else {
         console.log("getStatusERROR");
-    }res.send(connection);
-    hostPlayer.online = false;
+        res.end();
+    }
 })
 
 server.post("/plagiomon/:clientID/sendMove", (req, res) => {
@@ -178,10 +180,12 @@ server.post("/plagiomon/:clientID/sendMove", (req, res) => {
     const playerIndex = playerDB.findIndex((player) => player.id == player_id);
     if (playerIndex >= 0) {
         playerDB[playerIndex].setMoveID(pmove_id, pturn);
+        console.log("sendMove: " + pmove_id);
+        console.log("pturn: " + pturn);
+        res.send({pmove_id});
+    } else {
+        res.end();
     }
-    console.log("sendMove: " + pmove_id);
-    console.log("pturn: " + pturn);
-    res.send({pmove_id});
 })
 
 server.get("/plagiomon/:clientID/vs/:rivalID/getMove", (req, res) => {
