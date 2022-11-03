@@ -4,7 +4,7 @@ import express from "express";
 const server = express();
 import cors from "cors";
 server.use(cors());
-server.use(express.static('public'));
+// server.use(express.static('public'));
 server.use(express.json());
 const playerIDs = [];
 let playerDB = [];
@@ -52,7 +52,7 @@ server.listen(port, () => {
 });
 
 server.get("/", (req, res) => {
-    res.send({port});
+    res.send({playerDB});
 })
 
 server.get("/join", (req, res) => {
@@ -72,7 +72,7 @@ server.get("/join", (req, res) => {
     const newPlayer = new Jugador(newID);
     playerDB.push(newPlayer);
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.send(newID);
+    res.send({newID});
     playercount = playerDB.length;
 });
 
