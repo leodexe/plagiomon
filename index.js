@@ -4,7 +4,7 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 server.use(cors());
-server.use(express.static('jsmokepon'));
+server.use(express.static('burrito'));
 server.use(express.json());
 const playerIDs = [];
 let playerDB = [];
@@ -41,6 +41,8 @@ class Jugador {
 //         this.name = name;
 //     }
 // }
+
+const port = process.env.PORT || 4000;
 
 server.listen(8080, () => {
     console.log("Servidor encendido.");
