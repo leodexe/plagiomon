@@ -42,9 +42,11 @@ class Jugador {
 //     }
 // }
 
-const port = process.env.PORT || 4000;
+// const port = 8000;
+// module.exports = port;
 
-server.listen(port, () => {
+
+server.listen(8080, () => {
     console.log("Servidor encendido.");
 });
 
