@@ -92,8 +92,8 @@ sametypeattackbonus = 1.5;
 fetch("https://plagiomon.vercel.app").then(function (res1) {
     if (res1.ok) {
         console.log("/ OK");
-        res1.text().then(function (res2) {
-            console.log(res2);
+        res1.text().then(function (port) {
+            console.log(port);
         })
     } else {
         console.log("/ NOT OK");

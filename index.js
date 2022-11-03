@@ -42,16 +42,16 @@ class Jugador {
 //     }
 // }
 
-// const port = 8000;
+const port = process.env.PORT || 4000;
 // module.exports = port;
 
 
-server.listen(8080, () => {
+server.listen(port, () => {
     console.log("Servidor encendido.");
 });
 
 server.get("/", (req, res) => {
-    res.send("LAL");
+    res.send({port});
 })
 
 server.get("/join", (req, res) => {
