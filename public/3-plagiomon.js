@@ -89,11 +89,22 @@ let attackmiss, gamedata1, gamedata2, hpleech, leechMessage, weather, weatherLev
 p1win = p1loss = p1tie = roundcounter = 0;
 sametypeattackbonus = 1.5;
 
+fetch("https://plagiomon.vercel.app").then(function (res1) {
+    if (res1.ok) {
+        console.log("/ OK");
+        res1.text().then(function (res2) {
+            console.log(res2);
+        })
+    } else {
+        console.log("/ NOT OK");
+    }
+})
+
 // window.addEventListener("load", fgetPlayerID);
 function fgetPlayerID() {
     if (clientID == undefined) {
         // fetch("http://192.168.0.5:8080/join")
-        fetch("https://leodexe.vercel.app:8080/join")
+        fetch("https://plagiomon.vercel.app:8080/join")
         .then(function(res1) {
             console.log(res1);
             if (res1.ok) {
@@ -119,7 +130,7 @@ function fgetPlayerID() {
 
 function fgetPlayermon(objectmon) {
     // fetch(`http://192.168.0.5:8080/plagiomon/${clientID}`
-    fetch(`https://leodexe.vercel.app/plagiomon/${clientID}`, {
+    fetch(`https://plagiomon.vercel.app:8080/plagiomon/${clientID}`, {
         method: "post",
         headers: {
             "Content-Type": "application/json",
