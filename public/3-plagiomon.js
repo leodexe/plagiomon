@@ -104,7 +104,7 @@ fetch("https://plagiomon.vercel.app").then(function (res1) {
 function fgetPlayerID() {
     if (clientID == undefined) {
         // fetch("http://192.168.0.5:8080/join")
-        fetch("https://plagiomon.vercel.app:8080/join")
+        fetch("https://plagiomon.vercel.app/join")
         .then(function(res1) {
             console.log(res1);
             if (res1.ok) {
@@ -130,7 +130,7 @@ function fgetPlayerID() {
 
 function fgetPlayermon(objectmon) {
     // fetch(`http://192.168.0.5:8080/plagiomon/${clientID}`
-    fetch(`https://plagiomon.vercel.app:8080/plagiomon/${clientID}`, {
+    fetch(`https://plagiomon.vercel.app/plagiomon/${clientID}`, {
         method: "post",
         headers: {
             "Content-Type": "application/json",

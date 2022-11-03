@@ -51,7 +51,7 @@ server.listen(port, () => {
 });
 
 server.get("/", (req, res) => {
-    res.send({port});
+    res.send(port);
 })
 
 server.get("/join", (req, res) => {
