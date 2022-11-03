@@ -42,7 +42,8 @@ class Jugador {
 //     }
 // }
 
-const port = process.env.PORT || 4000;
+const port = 8080;
+// process.env.PORT || 4000;
 // module.exports = port;
 
 
