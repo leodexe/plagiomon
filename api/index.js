@@ -48,6 +48,10 @@ server.listen(8080, () => {
     console.log("Servidor encendido.");
 });
 
+server.get("/", (req, res) => {
+    res.send("LAL");
+})
+
 server.get("/join", (req, res) => {
     let loop = true;
     newID = `${Math.ceil(Math.random() * 1000)}`;
